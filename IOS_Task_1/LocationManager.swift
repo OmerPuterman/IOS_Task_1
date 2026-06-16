@@ -4,7 +4,6 @@ import Combine
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    
     private let manager = CLLocationManager()
     
     @Published var userSide: String? = nil
