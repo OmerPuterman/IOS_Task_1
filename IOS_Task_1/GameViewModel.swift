@@ -57,7 +57,7 @@ class GameViewModel: ObservableObject {
         pcScore = 0
         currentRound = 0
         currentState = .playing
-       // SoundManager.shared.playBackgroundMusic()
+        SoundManager.shared.playBackgroundMusic()
         startNewRound()
     }
     
@@ -92,7 +92,7 @@ class GameViewModel: ObservableObject {
         if secondsInCurrentRound == 1 {
             // חשיפת הקלפים אחרי שנייה אחת
             showCards = true
-          // SoundManager.shared.playEffect(soundName: "flip")
+           SoundManager.shared.playEffect(soundName: "flip")
             calculateScore()
         } else if secondsInCurrentRound == 4 {
             // הסתרת הקלפים אחרי 3 שניות של תצוגה
@@ -116,13 +116,13 @@ class GameViewModel: ObservableObject {
     func pauseGame() {
         guard isGameActive else { return }
         gameTimer?.invalidate()
-      //// SoundManager.shared.pauseBackgroundMusic()
+       SoundManager.shared.pauseBackgroundMusic()
     }
     
     /// פונקציה לבקרה על מחזור חיי האפליקציה - חזרה למשחק
     func resumeGame() {
         guard isGameActive else { return }
-       // SoundManager.shared.resumeBackgroundMusic()
+        SoundManager.shared.resumeBackgroundMusic()
         startTimer() // חידוש הטיימר מהנקודה שבה עצר
     }
     
@@ -130,8 +130,8 @@ class GameViewModel: ObservableObject {
     private func finishGame() {
         isGameActive = false
         gameTimer?.invalidate()
-       // SoundManager.shared.pauseBackgroundMusic()
-       // SoundManager.shared.playEffect(soundName: "win")
+        SoundManager.shared.pauseBackgroundMusic()
+        SoundManager.shared.playEffect(soundName: "win")
         
         // במקרה של תיקו הבית מנצח
         winnerName = userScore > pcScore ? userName : "PC"
